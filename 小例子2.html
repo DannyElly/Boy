@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: red;
+			transition: 1s;
+			margin: 100px auto;
+
+		}
+			
+		</style>
+	</head>
+	<!--transition过度属性       过度时间        延迟时间      运动形式-->
+	<body>
+		<input type="button" value="按钮" />
+		
+		<div id="div1"></div>
+
+		<script>
+			var oDiv = document.getElementById('div1');
+			var btn = document.getElementsByTagName('input')[0];
+			var arr = ['pink','yellow','green','#fff','black'];
+			var n = 0;
+			var timer = null;
+			
+			timer = setInterval(play,500);
+			function play(){
+				n++;
+				if(n==arr.length-1){
+					n=0;
+				}
+				document.body.style.background = arr[n];
+			}
+			document.body.onmouseover = function(){
+				clearInterval(timer)
+			}
+			oDiv.onmouseover = function (){
+				this.style.width = '400px';
+				this.style.height = '400px';
+				this.style.background = 'blue';
+				this.style.transform = 'rotate(360deg)';
+			}
+			oDiv.onmouseout = function (){
+				oDiv.style.cssText = '';
+			}
+		</script>
+	</body>
+</html>
