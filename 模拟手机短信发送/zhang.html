@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				margin: 0 auto;
+				width: 1000px;
+				height: 650px;
+				background:url(img/bg.jpg);
+				padding-top: 30px;
+				box-sizing: border-box;
+				
+			}
+			.box_1{
+				width: 320px;
+				height: 605px;
+				background-color: #e5e3ec;
+				border-radius: 20px;
+				position: relative;
+				margin: 0 auto;
+				padding-top: 20px;
+				box-sizing: border-box;
+				
+
+			}
+			.box_2{
+				width: 50px;
+				height: 6px;
+				background: #979799;
+				border-radius: 5px;
+				margin: 0 auto;
+				box-sizing: border-box;
+				
+			}
+			.box_3{
+				width: 285px;
+				height: 495px;
+				background: #fff;
+				margin: 0 auto;
+				box-sizing: border-box;
+				border:2px solid #b5b3bc;
+				margin-top: 15px;
+				position: relative;
+			}
+			.box_1 .img1{
+				position: absolute;
+				left: 135px;
+				bottom: 14px;
+			}
+			.box3_1{
+				height: 52px;
+				background-color: #e3e3e3;
+				position: absolute;
+				bottom: 0;
+				
+			}
+			.box3_1 img{
+				margin-left: 15px;
+				margin-top: 5px;
+				vertical-align: middle;
+			}
+			.box3_1 .input1{
+				margin: 0;
+				border: 0;
+				width: 170px;
+				height: 37px;
+				border-radius:5px;
+				margin-top: 6px;
+				margin-left: 5px;
+				outline: none;
+			}
+			.box3_1 .input2{
+				margin: 0;
+				border: 0;
+				background: none;
+				font-size: 14px;
+				color:#d25a61;
+				outline: none;
+				
+			}
+			.liao img{
+				vertical-align: middle;
+				float: left;
+			}
+			.liao .im{
+				margin-top: 10px;
+				margin-left: 10px;
+				vertical-align: bottom;
+				
+			}
+			.liao span{
+				padding: 10px;
+				line-height: 30px;
+				border-radius: 5px;
+				background-color: #e1e1e1;
+				margin-top: 30px;	
+			    max-width: 10px;
+			    
+			}
+			.liao{
+				margin: 10px;
+			}
+			
+			.con{
+				width:281px;
+				height: 439px;
+				background:#fff;
+				overflow: auto;
+				background: url(img/rbg.jpg);
+			}
+			.rig{
+				width: 100%;
+				overflow: hidden;
+				position: relative;
+				padding-top: 5px;
+			}
+			.liao_right{
+				float: right;
+			}
+			.liao_right span{
+				background-color:#bab3ce;
+				padding:10px;
+				border-radius: 5px;
+				margin-right: 8px;
+			}
+			.liao_right img{
+				vertical-align: middle;
+			}
+			.liao_right em{
+				width:5px;
+				height: 11px;
+				position: absolute;
+				right:38px;
+				top:11px;
+				background: url(img/r01.png) no-repeat;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		<div class="box">
+
+			<div class="box_1">
+			<img src="img/miaov.png" alt="" class="img1"/>
+				
+				<div class="box_2">
+					
+				</div>
+				<div class="box_3">
+					<div class="con">
+						
+						<!--<div class="liao">
+						<img src="img/lico.png"/>
+						<img src="img/l01.png" class="im"/>
+						<span>是可东方时尚时方但上</span>
+						</div>-->
+					
+						<!--<div class="rig">
+						<div class="liao_right">
+							<span>发<em></em></span>
+							<img src="img/rico.png"/>
+						</div>
+						</div>-->
+						
+						<!--<div class="rig"><div class="liao_right"><span>发<em></em></span><img src="img/rico.png"/></div></div>-->
+						
+							
+				
+					</div>
+					
+					<div class="box3_1">
+						<img src="img/lico.png" alt="" />
+						<input type="text" placeholder=" 请输入" class="input1" />
+						<input type="button"  value="发送" class="input2"/>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<script>
+			var box = document.getElementsByClassName('box3_1')[0];
+			var divs = document.getElementsByClassName('con')[0];
+			var Img = document.querySelector('.box3_1 img');//头像
+			var tex = document.getElementsByClassName('input1')[0];//文本框
+			var btn = document.getElementsByClassName('input2')[0];//发送
+			var onOff = true;
+			btn.onclick = function(){
+				var val = tex.value;
+
+				if(val == ''){
+					alert('请输入内容');
+				}else{
+					if(onOff){
+						divs.innerHTML += '<div class="liao"><img src="img/lico.png"/><img src="img/l01.png" class="im"/><span>'+val+'</span></div>';
+					}else{
+						divs.innerHTML += '<div class="rig">'+'<div class="liao_right"><span>'+val+'<em></em></span><img src="img/rico.png"/></div></div>';
+					}
+					
+					tex.value = '';
+					
+				}
+				
+
+				
+			}
+			Img.onclick = function(){
+				if(onOff){
+					Img.src = 'img/rico.png';
+					onOff = false;
+				}else{
+					Img.src = 'img/lico.png';
+					onOff = true;
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>
