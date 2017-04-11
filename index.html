@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			h1{
+				display: inline-block;
+			}
+			#btn{
+				width:100px;
+				height: 50px;
+				background: red;
+				font-weight: bold;
+				font-size: 15px;
+				color: #fff;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				border:5px solid;
+				margin-top: 50px;
+			}
+			.active{
+				width: 300px;
+				height: 180px;
+				border:30px solid darkgrey;
+				background: #fff;
+				padding: 10px;
+				position:absolute;
+				left:520px ;
+				top: 160px;
+				display: none;
+				
+			}
+			ul{
+				list-style-type: none;
+			}
+			ul li{
+				margin-bottom: 8px;
+			}
+			ul input{
+				width: 40px;
+				height: 30px;
+			}
+			.div2{
+				text-align: center;
+			}
+			.div2 input{
+				width: 80px;
+				height: 40px;
+				background: #002952;
+				color: #fff;
+				border: none;
+			}
+			ul li:nth-of-type(1) input{
+				color: #fff;
+				border: none;
+			}
+			ul li:nth-of-type(1) input:hover{
+				border:1px solid black;
+			}
+			ul li:nth-of-type(1) input:nth-of-type(1){
+				background: #9cce00;
+			}
+			
+			ul li:nth-of-type(1) input:nth-of-type(2){
+				color: yellow;
+				background: #efbd00;
+			}
+			ul li:nth-of-type(1) input:nth-of-type(3){
+				background: #5a94ef;
+			}
+			ul li:nth-of-type(1) input:nth-of-type(1):hover{
+				background: red;
+			}
+			ul li:nth-of-type(1) input:nth-of-type(2):hover{
+				background: yellow;
+				color: black;
+			}
+			ul li:nth-of-type(1) input:nth-of-type(3):hover{
+				background: blue;
+			}
+			ul li:nth-of-type(2) input,ul li:nth-of-type(3) input{
+				/*background:#ef9400;*/
+				border:1px solid #A9A9A9;
+			}
+			ul li:nth-of-type(2) input:hover,ul li:nth-of-type(3) input:hover{
+				background:#ef9400;
+				border:1px solid black;
+			}
+			.top{
+				width: 100%;
+				height: 100%;
+				opacity: 0.5;
+				background: black;
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<h1>请为下面的DIV设置样式:</h1>
+		<input type="button" name="" id="btn" value="点击设置" />
+		<div id="div1"></div>
+		<div class="top"></div>
+		<div class="active">
+			<ul>
+				<li>
+					<span>请选择背景色：</span>
+					<input type="button" value="红" />
+					<input type="button" value="黄" />
+					<input type="button" value="蓝" />
+				</li>
+				<li>
+					<span>请选择宽(px)：</span>
+					<input type="button" value="200" />
+					<input type="button" value="300" />
+					<input type="button" value="400" />
+				</li>
+				<li>
+					<span>请选择高(px)：</span>
+					<input type="button" value="200" />
+					<input type="button" value="300" />
+					<input type="button" value="400" />
+				</li>
+			</ul>
+			<div class="div2">
+				<input type="button" name="" id="" value="恢复" />
+				<input type="button" name="" id="" value="确定" />
+			</div>
+		</div>
+		<script>
+			var btn = document.getElementById('btn');
+			var show = document.getElementsByClassName('active')[0];
+			var top1 = document.getElementsByClassName('top')[0];
+			var div2 = document.getElementsByClassName('div2')[0];
+			var btn1 = div2.getElementsByTagName('input');
+			var div1 = document.getElementById('div1');
+			var lis = document.getElementsByTagName('li');
+			var col = lis[0].getElementsByTagName('input');
+			var wid = lis[1].getElementsByTagName('input');
+			var hei = lis[2].getElementsByTagName('input');
+			btn.onclick = function(){
+				show.style.display = 'block';
+				top1.style.display = 'block';
+			}
+			btn1[0].onclick = function(){
+				
+				div1.style.cssText = '';
+			}
+			btn1[1].onclick = function(){
+				show.style.display = 'none';
+				top1.style.display = 'none';
+			}
+			col[0].onclick = function(){
+				div1.style.background = 'red';
+			}
+			col[1].onclick = function(){
+				div1.style.background = 'yellow';
+			}
+			col[2].onclick = function(){
+				div1.style.background = 'blue';
+			}
+			wid[0].onclick = function(){
+				div1.style.width = '200px';
+			}
+			wid[1].onclick = function(){
+				div1.style.width = '300px';
+			}
+			wid[2].onclick = function(){
+				div1.style.width = '400px';
+			}
+			hei[0].onclick = function(){
+				div1.style.height = '200px';
+			}
+			hei[1].onclick = function(){
+				div1.style.height = '300px';
+			}
+			hei[2].onclick = function(){
+				div1.style.height = '400px';
+			}
+		</script>
+	</body>
+</html>
