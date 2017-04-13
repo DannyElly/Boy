@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload = function (){
+			    var text = document.getElementById('text');
+			    var btn = document.getElementById('btn');
+			    
+			    btn.onclick = function (){
+			        var val = text.value;
+			        if(val == '0'){
+			        	alert('今天是星期日');
+			        }else if(val == '1'){
+			        	alert('今天是星期一');
+			        }else if(val == '2'){
+			        	alert('今天是星期二');
+			        }else if(val == '3'){
+			        	alert('今天是星期三');
+			        }else if(val == '4'){
+			        	alert('今天是星期四');
+			        }else if(val == '5'){
+			        	alert('今天是星期五');
+			        }else if(val == '6'){
+			        	alert('今天是星期六');
+			        }else{
+			        	alert('你是不是傻啊');
+			        }
+			    };
+			};
+		</script>
+	</head>
+	<body>
+		<input type="text" id="text" />
+		<input type="button" id="btn" value="确定" />
+	</body>
+</html>

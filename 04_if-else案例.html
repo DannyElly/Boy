@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background: red;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="切换" />
+	<!--<div class="box" style="display: block;"></div>-->
+	<div class="box"></div>
+	<script>
+		var btn = document.getElementById('btn');
+		var box = document.querySelector('.box');
+		
+		//alert(box.style.display == '') // 如果行间没有这条样式，那么获取到的是一个空字符串
+		
+		var flag = true;
+		
+		btn.onclick = function (){
+		   /*
+		    * 如果box的display属性为block
+		    * 	就变成none
+		    * 否则就让box的display属性变为block
+		    */
+		   /*if(box.style.display == 'block'){
+		   		box.style.display = 'none';
+		   }else{
+		   		box.style.display = 'block';
+		   }*/
+		  
+		  // 问题：如果行间没有对应的样式，获取到的是一个空字符串，那么判断条件就会出现问题，想解决这个问题，就需要自己创造一个条件没那么这个条件由于是被if来使用，无非就是 true 或者 false ，然后随着按钮的点击 进行变化。
+		  
+		  if(flag == true){
+		  	box.style.display = 'none';
+		  	flag = false;
+		  }else{
+		  	box.style.display = 'block';
+		  	flag = true;
+		  }
+		  
+		};
+		
+	</script>
+</body>
+</html>

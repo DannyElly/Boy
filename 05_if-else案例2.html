@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="imgs/1.png" id="img"/>
+		<script>
+			var img = document.getElementById('img');
+			
+			var flag = true;
+			
+			img.onclick = function (){
+			    /*
+			     * 如果img的src是img/1.png
+			     * 	就变成 img/2.jpg
+			     * 否则就变回1.png	
+			     */
+			    console.log(img.src)
+			    /*if(img.src == 'http://192.168.1.102:8020/Code/work/2017-01-07/imgs/1.png'){
+			    	img.src = 'imgs/2.jpg';
+			    }else{
+			    	img.src = 'imgs/1.png';
+			    }*/
+			   if(flag){
+			    	img.src = 'imgs/2.jpg';
+			    	flag = false;
+			    }else{
+			    	img.src = 'imgs/1.png';
+			    	flag = true;
+			    }
+			    console.log(flag);
+			};
+			
+		</script>
+	</body>
+</html>

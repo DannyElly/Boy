@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+<body>
+	<button id="min">-</button>
+	<input type="text" id="text" />
+	<button id="add">+</button>
+	<script>
+		var text = document.getElementById('text');
+		var min = document.getElementById('min');
+		var add = document.getElementById('add');
+
+		var n = 0;
+
+		text.value = n;
+
+		// 减1
+		min.onclick = function() {
+			// alert(1);
+			/*if(text.value == 0){
+				alert('不能再-了');
+			}else{
+				n--
+			}*/
+			/*if(n > 0){
+				n--;
+			}else{
+				alert('不能再减了');
+			}*/
+			/*if(text.value <= 0){
+				alert('不能再减了');
+			}else{
+				text.value--
+			}*/
+			//console.log(n);
+
+			n--;
+
+			if(n < 0) {
+				alert('不能再减了');
+				n = 0;
+			}
+
+			text.value = n;
+		};
+
+		// 加1
+		add.onclick = function() {
+			// alert(2);
+			/*
+			 * 如果n小于5 那么就让n自增
+			 * 	否则（即n大于5）就弹出个对话框(并且n就等于5)
+			 */
+			/*if(n < 5){
+			   	  n++;
+			   }else{
+			   	  alert('不能再加了');
+			   	  // n = 5;
+			   }*/
+
+			n++;
+
+			if(n > 5) {
+				alert('不能再加了');
+				n = 5;
+			}
+			console.log(n);
+			text.value = n;
+		};
+	</script>
+</body>
+
+</html>

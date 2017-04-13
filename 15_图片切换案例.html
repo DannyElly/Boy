@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			img {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="prev">上一张</button><button id="next">下一张</button>
+		<img id="img" src="images/loading.gif" width="600"/>
+		<script>
+			
+			var prev = document.getElementById('prev');
+			var next = document.getElementById('next');
+			var img = document.getElementById('img');
+			
+			var n = 0;
+			
+			//img.src = 'images/'+(n + 1)+'.jpg';
+			tabImg();
+			
+			prev.onclick = function (){
+			    //alert(1);
+			    n--;
+			    if(n < 0){
+			    	n = 3;
+			    }
+			    
+			    //img.src = 'images/'+(n + 1)+'.jpg';
+			    tabImg();
+			    console.log(n);
+			};
+			
+			next.onclick = function (){
+			    //alert(2);
+			    n++;
+			    //console.log(n);
+			    if(n > 3){
+			    	n = 0
+			    }
+			    // 再字符串拼接中，如果使用()，那么先去运算小括号内的。
+			    //img.src = 'images/'+(n + 1)+'.jpg';
+			    tabImg();
+			    console.log(n);
+			};
+			
+			function tabImg(){
+			    img.src = 'images/'+(n + 1)+'.jpg';
+			}
+			
+		</script>
+	</body>
+</html>

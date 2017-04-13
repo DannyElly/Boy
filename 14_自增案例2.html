@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+<body>
+	<button id="min">-</button>
+	<input type="text" id="text" />
+	<button id="add">+</button>
+	<script>
+		var text = document.getElementById('text');
+		var min = document.getElementById('min');
+		var add = document.getElementById('add');
+
+		var n = 0;
+
+		text.value = n;
+
+		// 减1
+		min.onclick = function() {
+			n--;
+			if(n < 0){
+				n = 5;
+			}
+			text.value = n;
+		};
+
+		// 加1
+		add.onclick = function() {
+			n++;
+			if(n > 5){
+				n = 0;
+			}
+			text.value = n;
+		};
+	</script>
+</body>
+
+</html>
