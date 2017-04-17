@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var arr = [[1,2,3,4],['a','b','c'],100,400];
+    // var arr = [[1,2,3,4],['a','b',['c','arr','abc']],100,400];
+    // console.log(arr[1][2][2]);
+    //var arr = [fn1,fn2];
+    var arr = [];
+    function fn1() {
+      alert(1);
+    }
+    
+    function fn2() {
+      alert(2);
+    }
+    
+    //arr[1]();
+    
+    // arr[arr.length] = fn1;
+    // arr[arr.length] = fn2;
+    //
+    // console.log(arr);
+    
+    arr[0] = function (){
+      alert(3);
+    };
+    
+    console.log(arr);
+    
+    arr[0]();
+    
+    
+  </script>
+</body>
+</html>

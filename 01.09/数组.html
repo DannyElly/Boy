@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<!--
+		数组 
+		是一种储存数据的有序列表，并且每个数据可以被索引，与一次只能存储一个数据的变量不同，数组可以储存“任意”多个数据，最多可以存43亿个数据。而且是任意类型的数据。
+		用索引值(下标)来操作数组， 索引值从0开始。
+		数组的length和字符串不同，可读可写。当设置length属性的时候，如果小于原来的长度 那么就会截去多余的长度，如果大于原来的长度，默认以undefined进行填充。
+		数组长度， 如果想拿到数组第一位  使用arr[0]个       想拿到最后一位arr[length-1]
+		数组的长度会随着修改而动态的增长或减少
+		
+		增加数组的数据
+			arr[arr.length] = 新的值；   （向数组的最后一位添加新的数据）
+			例：
+			var arr = ['a','b','c','d']
+			arr[arr.length] = 1;
+			arr[arr.length] = 2;
+			arr[arr.length] = 3;
+			console.log(arr.length) //7
+			console.log(arr)//["a", "b", "c", "d", 1, 2, 3]
+		
+		修改数组方法
+			var arr = ['a','b','c','d']
+			arr[0] = 'A';//先找到要修改的，然后等于什么就把原来的值变成了什么
+			console.log(arr)// ["A", "b", "c", "d"]
+			
+		删除数组的方法
+			通过 delete 加上 数组[要删除的数据对应的下标]
+			通过delete可以删除数组中的某个数据，
+			var arr = ['a','b','c','d','e'];
+			//要删除c
+			console.log(arr.length)//5
+			console.log(arr)//["a", "b", "c", "d", "e"]
+			delete arr[2]//删除第二位c
+			console.log(arr[2])//length不会变 但是删除的第二位c 已经变成了undefindd
+		
+		
+		数组中的数组
+			var arr = ['a','b',['d','e'],'c']; 我想拿到e
+			console.log(arr[2][1]) // e 这样写就拿到了数组arr第二个里面的第一个
+			
+			
+			数组里的有名函数
+				var arr = []; //定义个空数组
+			
+				function fn1(){
+					alert(1);
+				}
+				
+				function fn2(){
+					alert(2);
+				}
+				
+				arr[0] = fn1;  把函数fn1放在arr第0位
+				arr[1] = fn2;  把函数fn2放在arr第1位
+				
+				console.log(arr) // [fn1，fn2]
+				console.log(arr[1]()) //相当于fn1执行 弹出1
+				
+				
+				
+			数组里的匿名函数
+			
+				var arr = [];    		 //定义一个空数组
+				arr[0] = function(){   	 //把匿名函数放进数组的第0位	
+					alert(1)
+				}
+				
+				console.log(arr)		
+				arr[0]();	//这样就可以用数组调用这个匿名函数了
+		
+		
+		总结：
+			数组就是一种数据格式
+			数组中的每个数据都是可以被索引的，并且索引值是从0开始
+			数组具有length属性，代表数组的长度，并且这个属性，可读可写
+			数组可以动态的添加和删除或者修改对应的数据，同时其长度也会动态的跟着改变
+			
+			
+	-->
+	<body>
+		<script>
+			//var arr = ['a','b','c','d']
+//			arr[arr.length] = 1;
+//			arr[arr.length] = 2;
+//			arr[arr.length] = 3;
+//			console.log(arr.length) //7
+//			console.log(arr)//["a", "b", "c", "d", 1, 2, 3]
+//			arr[0] = 'A';
+//			console.log(arr)// ["A", "b", "c", "d"]
+
+//			delete arr[1];
+//			console.log(arr.length)
+//			console.log(arr)
+
+//			var arr = ['a','b',['d','e'],'c'];
+//			console.log(arr[2][1]) // e
+
+//			var arr = [];
+//			
+//			function fn1(){
+//				alert(1);
+//			}
+//			
+//			function fn2(){
+//				alert(2);
+//			}
+//			
+//			arr[0] = fn1;
+//			arr[1] = fn2;
+//			
+//			console.log(arr) // [fn1，fn2]
+//			console.log(arr[1]()) //相当于fn1执行 弹出1
+	
+	
+//			var arr = [];    		 //定义一个空数组
+//			arr[0] = function(){   	 //把匿名函数放进数组的第0位	
+//				alert(1)
+//			}
+//			
+//			console.log(arr)		
+//			arr[0]();	//这样就可以用数组调用这个匿名函数了
+
+
+
+			var arr = ['a','b','c','d','e'];
+			//要删除c
+			console.log(arr.length)//5
+			console.log(arr)//["a", "b", "c", "d", "e"]
+			delete arr[2]//删除第二位c
+			console.log(arr[2])//length不会变 但是删除的第二位c 已经变成了undefindd
+			
+
+			
+
+			
+			
+		</script>
+	</body>
+</html>
