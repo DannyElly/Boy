@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换实例综合</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: '微软雅黑';
+    }
+    
+    html,
+    body {
+        height: 100%;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    body {
+        background: url(img/bg.jpg) no-repeat center;
+    }
+    
+    #centerBox {
+        width: 678px;
+        height: 504px;
+        border: 1px solid #d8d7db;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin-left: -340px;
+        margin-top: -253px;
+        border-radius: 16px;
+        background: #f9f8fd url(img/miaov.png) no-repeat 615px 227px;
+        box-shadow: 6px 6px 10px #b58bd9;
+    }
+    
+    .line {
+        width: 4px;
+        height: 58px;
+        border: 1px solid #dcdcdc;
+        border-radius: 2px;
+        background: #fff;
+        position: absolute;
+        left: 20px;
+        top: 222px;
+    }
+    
+    #tabBox {
+        width: 560px;
+        height: 410px;
+        border: 1px solid #dcdcdc;
+        margin: 47px 0 0 44px;
+        background: #000000;
+    }
+    
+    #tabBox h2 {
+        height: 36px;
+        padding: 15px 0 0 150px;
+    }
+    
+    #tabBox h2 a {
+        float: left;
+        width: 130px;
+        height: 34px;
+        border: 1px solid #dcdcdc;
+        border-radius: 2px;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+        font-weight: normal;
+        line-height: 34px;
+        margin-left: -1px;
+    }
+    
+    #tabBox h2 .active {
+        background: #fff;
+        color: #000;
+    }
+    
+    #tabBox p {
+        height: 44px;
+        text-align: center;
+        font-size: 14px;
+        color: #8e8e8e;
+        line-height: 38px;
+    }
+    
+    #imgBox {
+        position: relative;
+        width: 550px;
+        margin: 0 auto;
+    }
+    
+    #imgBox span,
+    #imgBox strong,
+    #imgBox em {
+        position: absolute;
+        width: 100%;
+        line-height: 34px;
+        height: 34px;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        left: 0;
+    }
+    
+    #imgBox span {
+        background: url(img/spanbg.png) no-repeat;
+        height: 43px
+    }
+    
+    #imgBox a {
+        position: absolute;
+        width: 35px;
+        height: 50px;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        top: 130px;
+        text-align: center;
+    }
+    
+    #imgBox a img {
+        padding: 12px 0 0 0px;
+    }
+    
+    #imgBox a:hover {
+        background: #000;
+    }
+    
+    #imgBox strong,
+    #imgBox em {
+        bottom: 0;
+        font-weight: normal;
+    }
+    
+    #imgBox em {
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        background: #000;
+        left: 0;
+        bottom: 0;
+    }
+    
+    #next {
+        right: 0;
+    }
+    
+    #tanBox {
+        position: absolute;
+        width: 298px;
+        height: 148px;
+        left: 50%;
+        top: 50%;
+        margin-left: -149px;
+        margin-top: -74px;
+        border: 1px solid #93908d;
+        display: none;
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, .5);
+    }
+    
+    #tanBox span {
+        position: absolute;
+        right: 14px;
+        top: 14px;
+        cursor: pointer;
+    }
+    
+    #tanBox em {
+        background: #000;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #tanBox p {
+        font-size: 18px;
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 31px;
+        line-height: 27px;
+    }
+    
+    #tanBox strong {
+        position: absolute;
+        width: 100%;
+        height: 44px;
+        font-size: 14px;
+        color: #93908d;
+        top: 58px;
+        text-align: center;
+        line-height: 44px;
+    }
+    
+    #tanBox a {
+        width: 80px;
+        height: 25px;
+        border: 1px solid #fff;
+        border-radius: 2px;
+        line-height: 25px;
+        text-align: center;
+        bottom: 19px;
+        left: 106px;
+        position: absolute;
+        font-size: 14px;
+        color: #fff;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="centerBox">
+        <span class="line"></span>
+        <div id="tabBox">
+            <h2>
+				<a href="javascript:void(0);" id="loop" class="active">循环切换</a>
+				<a href="javascript:void(0);" id="order">顺序切换</a>
+			</h2>
+            <p class="desc">图片可以从最后一张跳转到第一张循环切换</p>
+            <div id="imgBox">
+                <span class="imgNum">图片数量计算中……</span>
+                <img id="img" src="img/img01.jpg">
+                <a href="javascript:void(0);" id="prev"><img src="img/prev.png" /></a>
+                <a href="javascript:void(0);" id="next"><img src="img/next.png" /></a>
+                <em></em>
+                <strong class="imgDesc">图片文字加载中……</strong>
+            </div>
+        </div>
+        <div id="tanBox">
+            <em></em>
+            <span id="closex"><img src="img/close.png"/></span>
+            <p>JavaScript提醒</p>
+            <strong>已经到最后一张啦～</strong>
+            <a id="close" href="javascript:void(0);">确定</a>
+        </div>
+    </div>
+    <script>
+      /**
+       * 1. 点击 循环 和 顺序 功能按钮 分别切换className
+       * 2. 点击 左右 按钮 可以切换图片 还有动态的显示第几张图片和图片的描述信息
+       * 3. 关联两者的功能 判断什么时候是循环 什么时候 是顺序。
+       *    声明一个变量将2个功能关联起来 flag = true 就是默认的 循环切换
+       *    如果 flag = false 就是顺序切换
+       */
+      // ------------------------------------------------
+      // 变量的初始化
+      var flag = true;
+      var tanBox = document.getElementById('tanBox');
+      var able = 1;
+      
+      // ------------------------------------------------
+      var loop = document.getElementById('loop');
+      var order = document.getElementById('order');
+      var desc = document.querySelector('.desc');
+      
+      loop.onclick = function (){
+        /**
+         * 如果 弹窗不显示的时候 才能点击这个按钮
+         */
+        if(able == 1){
+          loop.className = 'active';
+          order.className = '';
+          desc.innerHTML = '图片可以从最后一张跳转到第一张循环切换';
+          flag = true;
+        }
+      };
+      
+      order.onclick = function (){
+        if(able == 1){
+          order.className = 'active';
+          loop.className = '';
+          desc.innerHTML = '图片只能到最后一张或只能到第一张切换';
+          flag = false;
+        }
+      };
+      
+      // ------------------------------------------------
+      var prev = document.getElementById('prev');
+      var next = document.getElementById('next');
+      var imgNum = document.querySelector('.imgNum');
+      var imgDesc = document.querySelector('.imgDesc');
+      var img = document.querySelector('#img');
+      
+      var arrImg = ['img01.jpg','img02.jpg','img03.jpg','img04.jpg'];
+      var arrDesc = ['文字描述1','文字描述2','文字描述3','文字描述4'];
+      
+      var n = 0;
+      
+      tabImag();
+
+      prev.onclick = function (){
+        if(able == 1){
+          n--;
+          if(n < 0){
+            if(flag){
+              n = arrImg.length - 1;
+            }else{
+              n = 0;
+              tanBox.style.display = 'block';
+              able = 2;
+            }
+          }
+          tabImag();
+        }
+      };
+      
+      next.onclick = function (){
+        if(able == 1){
+          n++;
+          if(n > arrImg.length - 1){
+            if(flag){
+              n = 0;  // 循环
+            }else{
+              n = arrImg.length - 1;  // 顺序
+              tanBox.style.display = 'block';
+              able = 2;
+            }
+          }
+          tabImag();
+        }
+      };
+      
+      // ---------------------------------------------
+      // 切换功能
+      
+      function tabImag() {
+        img.src = 'img/' + arrImg[n];
+        imgNum.innerHTML = (n + 1) + '/' + arrImg.length;
+        imgDesc.innerHTML = arrDesc[n];
+      }
+      
+      // ----------------------------------------------
+      // 隐藏弹窗
+      var closex = document.getElementById('closex');
+      var close = document.getElementById('close');
+      
+      /*close.onclick = function (){
+        tanBox.style.display = 'none';
+        able = 1;
+      };
+      closex.onclick = function (){
+        tanBox.style.display = 'none';
+        able = 1;
+      };*/
+      
+      close.onclick = closex.onclick = function (){
+        tanBox.style.display = 'none';
+        able = 1;
+      };
+    
+    </script>
+</body>
+
+</html>
