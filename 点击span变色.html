@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			span{
+				width: 50px;
+				height: 50px;
+				border:1px solid #FF0000;
+				position: absolute;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<script>
+			var str = '';
+			for(var i=0;i<50;i++){
+				str += '<span style="left:'+(i%10)*60+'px;top:'+Math.floor(i/10)*60+'px;"></span>';
+			}
+			document.body.innerHTML = str;
+			var spans = document.querySelectorAll('span');
+				//console.log(spans)
+			for(var i=0;i<spans.length;i++){
+				spans[i].onclick = function(){
+//					alert('a')
+					for(var i=0;i<spans.length;i++){
+						spans[i].style.background = '';
+					}
+					this.style.background = 'pink';
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

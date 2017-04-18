@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			span{
+				width: 50px;
+				height: 50px;
+				border: 1px solid #0000FF;
+				display: inline-block;
+			}
+			.active{
+				background: #9CCE00;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		
+		<script>
+			var box = document.querySelector('#box');
+			var spans = document.querySelectorAll('span');
+			var onOff = true;
+			for (var i = 0; i < spans.length; i++) {
+				spans[i].onOff = true;
+				spans[i].onclick = function(){
+				if(this.onOff){
+				this.className = 'active';
+					
+				}else{
+				this.className = '';
+					
+				}
+				this.onOff = !this.onOff;
+				}
+				
+				
+			}
+			
+		</script>
+	</body>
+</html>
