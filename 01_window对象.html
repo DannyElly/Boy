@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  /*> window 是JS中全局对象，凡是在全局中声明的变量，或者函数，最终都会成为它的属性（方法）。
+
+  - 全局：在JS中在script内，并且在函数外都算全局的范围。
+  - 对象：在现实中，对象是一个抽象的概念，可以指人或者事物，在JS中可以指标签元素等，都可以算是对象。
+  - 属性：一般都是名词，用来描述元素的特性的。
+  - 方法：在JS中就是指函数。*/
+  
+    var a = 1;
+    
+    function fn() {
+      alert(a);
+    }
+    
+    //alert(window.a);
+    //console.log(window.fn);
+    
+    window.fn();
+  
+  </script>
+</body>
+</html>

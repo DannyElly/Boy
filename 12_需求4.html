@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    span {
+      display: block;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #000;
+      margin: 5px;
+    }
+    .active {
+      background: rgb(250, 191, 15);
+    }
+  </style>
+</head>
+<body>
+  <span class=""></span>
+  <script>
+    //点击一个50*50的span，默认只有边框，没有背景颜色的，点击的时候添加背景颜色，再次点击取消背景颜色
+    var span = document.querySelector('span');
+    var flag = true;
+    span.onclick = function (){
+      if(flag){
+        this.className = 'active';
+      }else{
+        this.className = '';
+      }
+      flag = !flag;
+    };
+  </script>
+</body>
+</html>

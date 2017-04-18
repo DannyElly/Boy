@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    button {
+      width: 70px;
+      height: 40px;
+    }
+    .active {
+      background: rgba(58, 219, 65, 0.65);
+    }
+    div {
+      width: 220px;
+      height: 220px;
+      font: 49px/220px arial;
+      text-align: center;
+      border: 2px solid #000;
+      margin-top: 5px;
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button class="active">1</button>
+  <button>2</button>
+  <button>3</button>
+  <div class="show">1111</div>
+  <div>2222</div>
+  <div>3333</div>
+  <script>
+    /**
+     * 需求：选项卡
+     *  当鼠标移入对应的按钮的时候，让对应的div显示出来，然后不是对应的div隐藏
+     */
+     var btns = document.querySelectorAll('button');
+     var divs = document.querySelectorAll('div');
+     
+     /**
+      * btns
+      *  0     btns[0]
+      *  1     btns[1]
+      *  2     btns[2]
+      */
+     
+      /**
+       * divs
+       *  0     divs[0]
+       *  1     divs[1]
+       *  2     divs[2]
+       */
+      
+      // 1 先做鼠标移入按钮  移入的按钮 有背景颜色 其它没有
+      // 2 将所有的btns 和 div 对应起来
+      
+      for(var i=0; i<btns.length; i++){
+        // 给每个btns添加一个自定义的属性 叫 indedx，每次循环正好等于当前这个i的值
+        btns[i].index = i; // 自定义索引值
+        // 给每个btns添加鼠标移入事件
+        btns[i].onmouseover = function (){
+          //console.log(this.index);
+          // 先清空所有btns的className，以及让所有的div都隐藏（清空所有div的className）
+          for(var i=0; i<btns.length; i++){
+            btns[i].className = '';
+            divs[i].className = '';
+          }
+          //给当前的按钮添加背景 也就是 className为active
+          this.className = 'active';
+          //给当前这个按钮对应的这个div添加一个用来显示出来的className为show
+          divs[this.index].className = 'show';
+        };
+      }
+     
+     
+  </script>
+</body>
+</html>

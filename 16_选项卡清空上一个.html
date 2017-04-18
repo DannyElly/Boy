@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    button {
+      width: 70px;
+      height: 40px;
+    }
+    .active {
+      background: rgba(58, 219, 65, 0.65);
+    }
+    div {
+      width: 220px;
+      height: 220px;
+      font: 49px/220px arial;
+      text-align: center;
+      border: 2px solid #000;
+      margin-top: 5px;
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button class="active">1</button>
+  <button>2</button>
+  <button>3</button>
+  <div class="show">1111</div>
+  <div>2222</div>
+  <div>3333</div>
+  <script>
+    /**
+     * 需求：选项卡
+     *  当鼠标移入对应的按钮的时候，让对应的div显示出来，然后不是对应的div隐藏
+     */
+     var btns = document.querySelectorAll('button');
+     var divs = document.querySelectorAll('div');
+     
+     // 清空上一个
+     
+     var prevBtn = btns[0];
+     var prevDiv = divs[0];
+     
+     for(var i=0; i<btns.length; i++){
+       /**
+        * 什么时候用自定义索引值：
+        *  当一组元素去控制另外一组元素的时候，首先想到自定义属性（索引值）
+        *  给控制的一组元素添加索引值，而不是被控制的。
+        */
+       // 给每个按钮添加一个自定义索引值 0 1 2
+       btns[i].index = i;
+       btns[i].onmouseover = function (){
+         // 清空上一个（第一个，默认显示的那个）的className
+         prevBtn.className = '';
+         // 让上一个（默认显示的div）的className 清空
+         prevDiv.className = '';
+         // 给当前的按钮添加className
+         this.className = 'active';
+         // 让当前这个按钮对应的div显示出来（添加className为show）
+         divs[this.index].className = 'show';
+         // 更新上一个
+         prevBtn = this;
+         prevDiv = divs[this.index];
+       };
+     }
+     
+     
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    span {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #000;
+      margin: 5px;
+    }
+    .active {
+      background: rgb(250, 191, 15);
+    }
+  </style>
+</head>
+<body>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <script>
+    // 获取到5个spans
+    var spans = document.querySelectorAll('span'); // {flag:true}
+    
+    // 定义上一个
+    var prev = spans[0];
+    
+    // 循环所有的span
+    for(var i=0; i<spans.length; i++){
+      // 给每个span添加自定义属性 flag 默认为true
+      spans[i].flag = true;
+      // 给每个span添加点击事件
+      spans[i].onclick = function (){
+        // 如果当前点击的这个span身上的自定义flag 为true就执行
+        if(this.flag){
+          // 先清空上一个的className
+          prev.className = '';
+          // 由于上一个className被清空了，但是实际上没有className的时候
+          // 上一个的自定义属性flag对应的应该是个true，
+          // 所有要给它变回true
+          prev.flag = true;
+          // 给当前的这个点击的span添加一个className active
+          this.className = 'active';
+          // 让当前点击的这个span 变成上一个
+          // 以便下次点击的时候 可以找到正确的上一个
+          prev = this;
+        }else{
+          // 当这个span有className的时候，再次点击 由于 this.flag 变为了false
+          // 那么就执行清空className的操作
+          this.className = '';
+        }
+        // 切换它的这个 开关
+        this.flag = !this.flag;
+      }
+    }
+  </script>
+</body>
+</html>
