@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body {
+				margin: 0;
+				width: 1000px;
+				height: 800px;
+				margin: 0 auto;
+				background: url(bg.png) no-repeat center center;
+			}
+			
+			.wrap {
+				width: 290px;
+				height: 490px;
+				background: url(bg1.png) no-repeat center center;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin: -245px 0 0 -145px;
+				position: absolute;
+				box-shadow: 0 0 8px rgba(0,0,0,.3);
+				border-radius: 5px;
+			}
+			
+			.box {
+				width: 250px;
+				height: 250px;
+				position: absolute;
+				top: 70px;
+				left: 50%;
+				margin-left: -125px;
+			}
+			
+			.btn {
+				width: 114px;
+				height: 36px;
+				border: 1px solid #68bcfa;
+				border-radius: 3px;
+				position: absolute;
+				bottom: 30px;
+				left: 50%;
+				margin-left: -57px;
+				text-align: center;
+				font: 16px/36px arial;
+				color: #68bcfa;
+				cursor: pointer;
+			}
+			.btn:hover {
+				background: #68bcfa;
+				color: #fff;
+			}
+			
+			.box div {
+				width: 50px;
+				height: 50px;
+				background: #fff;
+				text-align: center;
+				line-height: 50px;
+				font-size: 20px;
+				color: #68bcfa;
+				border-radius: 2px;
+				position: absolute;
+				/*opacity: 0;*/
+			}
+		</style>
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="box">
+				<!--<div style="left:0px;top:0px;">1</div>
+				<div style="left:50px;top:50px;">2</div>
+				<div style="left:100px;top:100px;">3</div>
+				<div style="left:150px;top:50px;">4</div>
+				<div style="left:200px;top:0px;">5</div>-->
+				<!-- <div style="top:0px;right:0px;">1</div>
+				<div style="top:50px;right:50px;">2</div>
+				<div style="top:100px;right:100px;">3</div>
+				<div style="top:150px;right:50px;">4</div>
+				<div style="top:200px;right:0px;">5</div> -->
+				<!-- <div style="right:0px;bottom:0px;">1</div>
+				<div style="right:50px;bottom:50px;">2</div>
+				<div style="right:100px;bottom:100px;">3</div>
+				<div style="right:150px;bottom:50px;">4</div>
+				<div style="right:200px;bottom:0px;">5</div> -->
+				<!-- <div style="bottom:0px;left:0px;">1</div>
+				<div style="bottom:50px;left:50px;">2</div>
+				<div style="bottom:100px;left:100px;">3</div>
+				<div style="bottom:150px;left:50px;">4</div>
+				<div style="bottom:200px;left:0px;">5</div> -->
+			</div>
+			<div class="btn">生成</div>
+		</div>
+		<script>
+			// 获取元素  按钮 和 class为box的div
+			var btn = document.querySelector('.btn');
+			var box = document.querySelector('.box');
+			
+			var len = 5;
+			var w = 50;
+			var n = 0;
+			
+			/*var topv = ['left', 'top'];
+			var rightv = ['top', 'right'];
+			var bottomv = ['right', 'bottom'];
+			var leftv = ['bottom', 'left'];
+			
+			var dir = [topv, rightv, bottomv, leftv];*/
+			
+			var dir = [
+				['left', 'top'],
+				['top', 'right'],
+				['right', 'bottom'],
+				['bottom', 'left']
+			];
+			
+			var first = true;
+			
+			//createDiv();
+			
+			// 点击按钮 去生成 div 点击后 可以切换方向
+			btn.onclick = function (){
+				if(first){
+					btn.innerHTML = '变换';
+					first = false;
+				}
+				createDiv();
+				n++;
+				n %= dir.length;
+			};
+			
+			
+			// 生成div的函数 同时可以控制开口方向
+			function createDiv () {
+				var str = '';
+				var t = 0;
+				for(var i=0; i<len; i++){
+					if(i < len / 2){
+						t = i;
+					}else{
+						t = len - i - 1;
+					}
+					str += '<div style="'+dir[n][0]+':'+(i*w)+'px;'+dir[n][1]+':'+(t*w)+'px;">'+(i+1)+'</div>'
+				}
+				box.innerHTML = str;
+			}
+		</script>
+	</body>
+
+</html>
