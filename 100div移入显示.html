@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+
+				width: 75px;
+				height: 49.9px;
+				position:absolute;
+				transition:1s;
+				background-image:url(img/1.jpg) ;
+				background-color: #red;
+				opacity: 0.3;
+				transition: 1s;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<script>
+			var str = '';
+			for (var i=0;i<100;i++){
+				str += '<div style="left:'+(i%10)*80+'px;top:'+Math.floor(i/10)*55+'px;background-position:-'+(i%10)*75+'px  -'+Math.floor(i/10)*49.9+'px;"></div>';
+			}
+			document.body.innerHTML = str;
+			
+			var divs = document.querySelectorAll('div');
+			console.log(divs)
+			for(var i=0;i<divs.length;i++){
+				divs[i].onmouseover = function(){
+					this.style.opacity = 1;
+					this.style.transform = 'scale(1.2)';
+				}
+				divs[i].onmouseout = function(){
+					this.style.transform = 'scale(1)';
+					
+				}
+			}
+			
+		</script>
+	</body>
+</html>
