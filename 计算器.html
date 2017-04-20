@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="text1" />
+		<select name="">
+			<option value="0">+</option>
+			<option value="1">-</option>
+			<option value="2">*</option>
+			<option value="3">/</option>
+		</select>
+		<input type="text" id="text2" />
+		<input type="button" value="=" id="text3" />
+		<input type="text" id="text4" />
+		
+		
+		<script>
+			var txt1 = document.getElementById('text1');
+			var txt2 = document.getElementById('text2');
+			var btn = document.getElementById('text3');
+			var txt4 = document.getElementById('text4');
+			var sele = document.getElementsByTagName('select')[0];
+			btn.onclick = function(){
+				var t1 = txt1.value*1;
+				var t2 = txt2.value*1;
+				if(sele.value=='0'){
+					txt4.value=t1 + t2;
+				}else if(sele.value=='1'){
+					txt4.value=t1 - t2;
+				}else if(sele.value=='2'){
+					txt4.value=t1 * t2;
+				}else{
+					txt4.value=t1 / t2;
+				}
+				
+			}
+			
+		</script>
+		
+	</body>
+</html>
