@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>百度评分</title>
+		<style>
+			body,h1 {
+				margin: 0;
+				padding: 0;
+				-webkit-font-smoothing: antialiased;
+			}
+			.starts{
+				overflow:hidden;
+			}
+			.starts span{
+				display: block;
+				float: left;
+				padding: 3px;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="pingfen.css"/>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="baidu">
+				<div class="caption">
+					<h1></h1>
+					<span>总体评价</span>
+				</div>
+				<div class="context">
+					<div class="starts">
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+					</div>
+					<div class="info"></div>
+				</div>
+				<div class="tips">
+					小提示：点击星星就能打分
+				</div>
+			</div>
+		</div>
+		<script>
+      (function (d){  // 命名空间
+        var starts = d.querySelectorAll('.starts span');
+        var info = d.querySelector('.info');
+        
+        var arr = ['极差','较差','一般','良好','极好'];
+        var n = -1;
+        
+        for(var i=0, len=starts.length; i<len; i++){
+          starts[i].index = i;
+          starts[i].onmouseover = function (){
+            light(this.index);
+            info.style.display = 'block';
+            info.innerHTML = arr[this.index];
+          };
+          starts[i].onmouseout = function (){
+            light(n);
+            if(n == -1){
+              info.style.display = '';
+              info.innerHTML = '';
+            }else{
+              info.innerHTML = arr[n];
+            }
+          };
+          starts[i].onclick = function (){
+            n = this.index;
+          };
+        }
+        
+        function light(x){
+          for(var i=0; i<len; i++){
+            if(i <= x){
+              starts[i].innerHTML = '★';
+              if(i < 2){
+                starts[i].style.color = 'rgba(219, 136, 110, 0.83)';
+              }else{
+                for(var j=0; j<=i; j++){
+                  starts[j].style.color = 'red';
+                }
+              }
+            }else{
+              starts[i].innerHTML = '☆';
+              starts[i].style.color = ''
+            }
+          }
+        }
+      })(document)
+		</script>
+	</body>
+</html>
