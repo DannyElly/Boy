@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    /*function sum(a, b){
+      var c = a + b;
+      alert(c);
+      return c;
+    }*/
+    
+    // a, b 是函数的形参，定义函数时候的参数。
+    
+    //sum(1, 2);
+    
+    // 函数调用时候传入的参数，例如上面的 1，2，就是实参。
+    
+    //形参可以定义任意多个，但不一定和实参是一一对应的，如果定义了形参，
+    // 但是在函数调用的时候没有传入实参，那么此时在函数内的形参的值就是undefined
+    
+    // sum(1);
+    
+    /*function sum(a, b){
+      alert(a); // 1
+      alert(b); // undefined
+      var c = a + b;  // undefined + 1
+      alert(c);  // NaN
+      return c;
+    }*/
+    
+    //sum(1,2,3,4);
+    
+    function sum(a, b){
+      alert(a); // 1
+      alert(b); // 2
+      var c = a + b;  // 1 + 2
+      alert(c);  // 3
+      return c;
+    }
+    
+    // 在调用函数的时候，可以传入任意多个实参。
+    
+    /*function fn1(){}
+    
+    alert(fn1.length);*/
+    
+    /*function fn2(a,b,c){}
+    
+    alert(fn2.length);*/
+    
+    /*function fn3(){
+      // alert(arguments.length);
+      console.log(arguments);
+    }
+    fn3(1,2,3,4,5,6);*/
+    
+    /*function fn4(a,b,c){
+      console.log(a, b, c);
+    }*/
+    
+    /*function fn44(a, b, c){
+      var a = 1, b = 2, c;   // 可以想象成这个样子
+    }*/
+    
+    //fn4(1,2)
+    
+    function fn(a,b){
+      var a = 1;
+      var b = 2;
+      console.log(a,b);
+    }
+    
+    fn(5, 6); // 1 , 2
+    
+  </script>
+</body>
+</html>

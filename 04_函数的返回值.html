@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">1</button>
+  <input id="text" type="text">
+  <script>
+    /*var btn = document.getElementById('btn');
+    
+    var a = btn.onclick = abc();
+    
+    function abc(){
+      alert(1);
+    }
+    
+    console.log(a);*/
+    
+    /*function sum(a,b){
+      var c = a + b;
+      return c;
+    }
+    
+    var result = sum(1,2);
+    
+    console.log(result);*/
+    
+    // 函数return 后面是什么 那么函数的执行结果就是什么
+    
+    /*function fn1(){
+      return [1,2,3,4];
+    }
+    
+    var res = fn1();
+    
+    console.log(res);*/
+    
+    /*function fn1(){
+      alert(1);
+      alert(2);
+      return {a:1};
+      alert(3);
+    }
+    
+    fn1()*/
+    
+    var btn = document.getElementById('btn');
+    var text = document.getElementById('text');
+    
+    btn.onclick = function (){
+      if(text.value == ''){
+        alert('你需要输入点内容');
+        return;
+      }
+      alert(text.value);
+    };
+    
+    
+    
+  </script>
+</body>
+</html>

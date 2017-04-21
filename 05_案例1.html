@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="item">
+        <button>-</button>
+        <input type="text" value="0">
+        <button>+</button>
+    </div>
+    <div class="item">
+        <button>-</button>
+        <input type="text" value="0">
+        <button>+</button>
+    </div>
+    <div class="item">
+        <button>-</button>
+        <input type="text" value="0">
+        <button>+</button>
+    </div>
+    
+    <script>
+      var items = document.querySelectorAll('.item');
+      
+      /*addMin(items[0]);
+      addMin(items[1]);
+      addMin(items[2]);*/
+      
+      for(var i=0; i<items.length; i++){
+        addMin(items[i]);
+      }
+      
+      function addMin(ele){
+        var btns = ele.getElementsByTagName('button'),
+            text = ele.querySelector('input');
+          
+        btns[0].onclick = function (){
+          text.value = --text.value;
+          if(text.value < 0){
+            text.value = 4;
+          }
+        };
+        btns[1].onclick = function (){
+          // 隐式类型转换，当时用 一元操作符 ++ / --
+          text.value = ++text.value;
+          if(text.value > 4){
+            text.value = 0;
+          }
+        };
+      }
+    </script>
+</body>
+
+</html>
