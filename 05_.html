@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="tab-continaer">
+    <!-- <div class="captions">
+      <span>aaa</span>
+      <span>bbb</span>
+      <span>ccc</span>
+    </div>
+    <div class="content">
+      <div class="content-item">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <p>
+          <img src="1.jpg">
+          <img src="2.jpg">
+          <img src="3.jpg">
+          <img src="4.jpg">
+        </p>
+      </div> -->
+  </div>
+  <script>
+    var data = [
+      {
+        'caption': 'aaa',
+        'caption-item': ['1', '2', '3', '4'],
+        'imgs': ['1.jpg','2.jpg','3.jpg','4.jpg']
+      },
+      {
+        'caption': 'bbb',
+        'caption-item': ['1', '2', '3'],
+        'imgs': ['1.jpg','2.jpg','3.jpg']
+      },
+      {
+        'caption': 'ccc',
+        'caption-item': ['1', '2'],
+        'imgs': ['1.jpg','2.jpg']
+      }
+    ];
+    
+    var wrap = document.querySelector('.tab-continaer');
+    
+    var str = '<div class="captions">';
+    for(var i=0; i<data.length; i++){
+      str += '<span>'+data[i].caption+'</span>';
+    }
+    str += '</div>';
+    
+    wrap.innerHTML = str;    
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .tab button {
+      width: 100px;
+      height: 40px;
+    }
+    .tab button.active {
+      background: rgba(241, 78, 191, 0.72);
+    }
+    .tab p {
+      width: 315px;
+      height: 100px;
+      border: 1px solid #000;
+      display: none;
+    }
+    .tab p.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab">
+    <button class="active">1</button>
+    <button>2</button>
+    <button>3</button>
+    <p class="active">111</p>
+    <p>222</p>
+    <p>333</p>
+  </div>
+  <div class="tab">
+    <button class="active">1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <p class="active">111</p>
+    <p>222</p>
+    <p>333</p>
+    <p>444</p>
+  </div>
+  <div class="tab">
+    <button class="active">1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <p class="active">111</p>
+    <p>222</p>
+    <p>333</p>
+    <p>444</p>
+    <p>555</p>
+  </div>
+  <script>
+    var tabs = document.querySelectorAll('.tab');
+    
+    /*tabInit(0);
+    tabInit(1);
+    tabInit(2);*/
+    for(var i=0; i<tabs.length; i++){
+      tabInit(i);
+    }
+    
+    function tabInit(index){
+      var btns = tabs[index].querySelectorAll('button');
+      var cons = tabs[index].querySelectorAll('p');
+      
+      var prev = 0;
+      
+      for(var i=0; i<btns.length; i++){
+        btns[i].index = i;
+        btns[i].onclick = function (){
+          cons[prev].className = btns[prev].className = '';
+          this.className = cons[this.index].className = 'active';
+          prev = this.index;
+        };
+      }
+    }
+    
+  </script>
+</body>
+</html>
