@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+		</style>
+		
+	</head>
+	<!--
+		setTimeout（要做的事，多少毫秒之后）
+		在多少毫秒之后做 要做的事
+	-->
+	<body>
+		<!--
+			需求：div3秒后改变背景颜色
+		-->
+		<div>
+			
+		</div>
+		<script>
+			var oDiv = document.querySelector('div');
+			
+			setTimeout(function(){
+				oDiv.style.background = 'green';
+			},3000)
+		</script>
+	</body>
+</html>

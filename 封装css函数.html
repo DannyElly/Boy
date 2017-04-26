@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width:200px;
+				height: 200px;
+				background-image: -webkit-linear-gradient(green,blue,yellow,red);
+				opacity: 0.7;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		
+		
+		<script type="text/javascript">
+			var box = document.querySelector('.box');
+			
+			
+			
+			function css(){
+				var len = arguments.length;
+				if(len<2){
+					return false;
+				}
+				if(len==2){
+					return Number.parseFloat(getComputedStyle(arguments[0])[arguments[1]]);
+				}
+				if(len==3){
+					return arguments[0].style[arguments[1]] = arguments[2];
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>
