@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="baidu333.css" />
+		<style>
+			body,p{
+				margin:0;
+			}
+			ul{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			#list li.even-color {
+				background: rgba(225,86,113,.3);
+			}
+			#list li.hover {
+				background: rgba(225,86,113,.5);
+				color: #fff;
+			}
+			#list li.checked {
+				background: rgba(225,86,113,.8);
+				color: #fff;
+			}
+		</style>
+		<!--
+			如何在HTML页面中播放音频？
+
+				audio元素可以实现在HTML页面中嵌入音频内容，该元素的属性可以设置是否自动播放、预加载及循环播放等；
+				audio元素提供了播放、暂停和音量控件来控制音频；
+
+			注意：IE8或者更早的IE版本不支持<audio>元素；
+
+			使用audio元素需要提供三种格式的音频文件：MP3、Ogg、Wav;
+
+			语法结构：
+				<audio src="mp3/泡沫-G_E_M_邓紫棋.mp3"></audio>
+				或者
+				<audio controls>
+					<source src="mp3/泡沫-G_E_M_邓紫棋.mp3"/>
+				</audio>
+				
+			audio属性：
+				-src:指定播放文件的URL，可以通过<source>;
+				-controls:可激活各浏览器提供的默认页面;（规定浏览器应该为音频提供播放控件）
+				-autoplay:加载音频后自动播放;
+				-loop:设置该属性后，当音频结束后，会反复播放该音频;
+				-preload:缓存设置; 
+		-->
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="baidu">
+				<ul id="list">
+					<li>
+						<div></div>
+						<span>泡沫</span>
+						<span>邓紫棋</span>
+						<p>
+							<audio src="audio/泡沫-G_E_M_邓紫棋.mp3" controls="controls" loop="false" hidden="true"></audio>
+						</p>
+					</li>
+					<li>
+						<div></div>
+						<span>说爱你</span>
+						<span>蔡依林</span>
+						<p>
+							<audio src="audio/说爱你_蔡依林.mp3" controls="controls" loop="false" hidden="true"></audio>
+						</p>
+					</li>
+					<li>
+						<div></div>
+						<span>稻香</span>
+						<span>周杰伦</span>
+						<p>
+							<audio src="audio/稻香-周杰伦.mp3" controls="controls" loop="false" hidden="true"></audio>
+						</p>
+					</li>
+					<li>
+						<div></div>
+						<span>我的梦</span>
+						<span>张靓颖</span>
+						<p>
+							<audio src="audio/我的梦-张靓颖.mp3" controls="controls" loop="false" hidden="true"></audio>
+						</p>
+					</li>
+					<li>
+						<div></div>
+						<span>怎么说我不爱你</span>
+						<span>萧敬腾</span>
+						<p>
+							<audio src="audio/怎么说我不爱你-萧敬腾.mp3" controls="controls" loop="false" hidden="true"></audio>
+						</p>
+					</li>
+					<li>
+						<div></div>
+						<span>无处安放</span>
+						<span>白若溪</span>
+						<p>
+							<audio src="audio/无处安放-白若溪.mp3" controls="controls" loop="false" hidden="true"></audio>
+						</p>
+					</li>
+				</ul>
+				<div class="select">
+					<span class="selectAll">
+						<span>全选</span>
+					</span>
+					<div class="others">
+						<span><em></em>收藏</span>
+						<span><em></em>添加</span>
+						<span><em></em>删除</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			(function (d){
+				var list = document.querySelectorAll('#list li'),
+						checkes = document.querySelectorAll('#list li div');
+				var checkeAll = document.querySelector('.selectAll');
+				var len = list.length, n = 0,
+						selectedAll = false,
+						html_ = checkeAll.innerHTML;
+				for(var i=0; i<len; i++){
+					list[i].checked = false;
+					list[i].index = i;
+					list[i].color = list[i].className = i%2 ? 'even-color' : '';
+					list[i].onmouseover = function (){
+						this.className = this.checked ? 'checked' : 'hover';
+					};
+					list[i].onmouseout = function (){
+						this.className = this.checked ? 'checked' : this.color;
+					};
+					list[i].onclick = function (){
+						this.checked = this.checked ? false : true;
+						checkes[this.index].innerHTML = this.checked ? '✔️' : '';
+						this.className = this.checked ? 'checked' : 'hover';
+						n = this.checked ? ++n : --n;
+						checkeAll.innerHTML = (n == len) ? ('✔️' + html_) : html_;
+						selectedAll = (n == len) ? true : false;
+					};
+				}
+				
+				checkeAll.onclick = function (){
+					selectedAll = selectedAll ? false : true;
+					isCheckedAll(selectedAll);
+				};
+				
+				function isCheckedAll(checked){
+					checkeAll.innerHTML = checked ? ('✔️' + html_) : html_;
+					n = checked ? len : 0;
+					for(var i=0; i<len; i++){
+						checkes[i].innerHTML = checked ? '✔️' : '';
+						list[i].checked = checked ? true : false;
+						list[i].className = checked ? 'checked' : list[i].color;
+					}
+				}
+			})(document)
+		</script>
+	</body>
+</html>
